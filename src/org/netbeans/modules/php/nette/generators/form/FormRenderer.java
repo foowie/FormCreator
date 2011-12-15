@@ -37,10 +37,13 @@ public class FormRenderer {
 		for(IColumn col : columns) {
 			sb.append(col.render());
 		}
-		sb.append("\n\t$form->addSubmit('submitButton', 'Uložit')->onClick[] = callback($this, 'submit'.$name);\n");
-		sb.append("\t$form->addSubmit('cancelButton', 'Storno')->setValidationScope(false)->onClick[] = callback($this, 'cancel'.$name);\n");
+		sb.append("\n\t$form->addSubmit('submitButton', 'Submit')->onClick[] = callback($this, 'submit'.$name);\n");
+		sb.append("\t$form->addSubmit('cancelButton', 'Cancel')->setValidationScope(false)->onClick[] = callback($this, 'cancel'.$name);\n");
 
-		sb.append("\n\treturn $form;\n}");
+		sb.append("\n\treturn $form;\n}\n\n");
+
+		sb.append("public function submit").append(componentName).append("($button) {\n$values = $button->getForm()->getValues();\n	/* TODO: handle submit */\n$this->redirect(\"this\");\n}\n\n");
+		sb.append("public function cancel").append(componentName).append("($button) {\n	/* TODO: handle submit */\n$this->redirect(\"this\");\n}\n");
 		return sb.toString();
 	}
 
