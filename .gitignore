@@ -1,0 +1,2 @@
+build/*
+!build/org-netbeans-modules-php-nette-generators-form.nbm
