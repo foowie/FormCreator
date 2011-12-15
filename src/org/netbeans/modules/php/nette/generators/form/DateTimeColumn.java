@@ -16,7 +16,7 @@ public class DateTimeColumn extends Column {
 	@Override
 	public String render() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(addComponent("DateTimePicker", md.getName(), md.getLabel()));
+		sb.append(addComponent("DateTime", md.getName(), md.getLabel()));
 
 		if(md.getNullable() == false) {
 			sb.append("\n").append(addRule(RULE_FILLED));
